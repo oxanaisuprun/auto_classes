@@ -13,63 +13,51 @@ namespace tasks1_2
 			string side = Console.ReadLine();
             double sideDouble = 0.00;
             Random rand = new Random();
-			double random_value = Convert.ToDouble(rand.Next(5, 50) / 10);//this generates random values instead of broken size
+			double random_value = Math.Round(Convert.ToDouble(rand.Next(50, 500) / 100),1);//this generates random values instead of broken size
 			double temp_val = 0.00;
             int temp_count = 0;
-            if (temp_count < 3 && !double.TryParse(radius, out temp_val))
+            if (!double.TryParse(radius, out temp_val))//this verifies radius input
+            {
+                while (temp_count < 3 && !double.TryParse(radius, out temp_val))
                 {
-                Console.WriteLine("Your radius is invalid");
+                    Console.WriteLine("Your input radius is invalid. Please try again");
+                    Console.ReadLine();
+                    temp_count++;
+                }
                 radiusDouble = random_value;
             }
             else { radiusDouble = Convert.ToDouble(radius); }
-            if (temp_count < 3 && !double.TryParse(side, out temp_val))
+            if (!double.TryParse(side, out temp_val))//this verifies side input
             {
-                Console.WriteLine("Your side is invalid");
+                while (temp_count < 3 && !double.TryParse(side, out temp_val))
+                {
+                    Console.WriteLine("Your input side is invalid. Please try again");
+                    Console.ReadLine();
+                    temp_count++;
+                }
                 sideDouble = random_value;
             }
             else { sideDouble = Convert.ToDouble(side); }
-            //bool isvalid = false;
-            ////
-            //for(int i=0; i<3 && !isvalid; i++)
-            //{
-            //	Console.Write("Input radius ");
-            //	String StrTmp = Console.ReadLine();
-            //	isvalid = Double.TryParse(StrTmp, out temp_val);
-            //	if((temp_val > 5) || (temp_val < 0.5))
-            //		isvalid = false;
-            //	else if(!isvalid)
-            //		Console.Write("Radius is not valid");
-            //}
-            //if(!isvalid)
-            //{
-            //	radius = Convert.ToString(random_value);
-            //}
+           
+            double roundArea = Math.Round(Math.PI * Math.Pow(radiusDouble, 2), 2);//this returns square of round
+			double quadrateArea = Math.Round(Math.Pow(sideDouble, 2), 2);//this returns square of quadrate
+			Console.WriteLine("Area of the circle with radius {0} is {1}", radiusDouble, roundArea);
+			Console.WriteLine("Area of the quadrate with side {0} is {1}", sideDouble, quadrateArea);
 
-            //if (a == false)
-            //{
-            //	Console.WriteLine("Your entered value is invalid. Please try again:");
-            //}
-            //else { }
-
-            //                int temp = 0;
-            //if (temp < 3 &&)
-            //{ }
-            //else { radius = random_value; }
-
-            double roundSquare = Math.Round(Math.PI * Math.Pow(radiusDouble, 2), 2);//this returns square of round
-			double quadrateSquare = Math.Round(Math.Pow(sideDouble, 2), 2);//this returns square of quadrate
-			Console.WriteLine("Square of the circle with radius {0} is {1}", radiusDouble, roundSquare);
-			Console.WriteLine("Square of the quadrate with side {0} is {1}", sideDouble, quadrateSquare);
-
-			if (roundSquare > Math.PI / 2 * quadrateSquare)
+			if (roundArea > Math.PI / 2 * quadrateArea)
 			{
 				Console.WriteLine("The quadrate fits in the circle");
-			}
-			else if (roundSquare < Math.PI / 4 * quadrateSquare)
+                Console.ReadKey();
+            }
+			else if (roundArea < Math.PI / 4 * quadrateArea)
 			{
 				Console.WriteLine("The circle fits in the quadrate");
-			}
-			else { Console.WriteLine("The quadrate and the circle are crossed");}
+                Console.ReadKey();
+            }
+			else { 
+                Console.WriteLine("The quadrate and the circle are crossed");
+                Console.ReadKey();
+            }
 		}
 	}
 }
