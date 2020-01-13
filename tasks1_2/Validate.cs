@@ -7,29 +7,30 @@ namespace tasks1_2
 
 		public double ValidateValue(string lenght)
 		{
-			double temp_val = 0.00;
-			int temp_count = 0;
 			double lenghtDouble;
 			Random rand = new Random();
 			double randomValue = Math.Round(Convert.ToDouble(rand.Next(50, 500) / 100),1);//this generates random values instead of broken size
 
-			if (!double.TryParse(lenght, out temp_val))//this verifies value input
+			for (int i = 1; i < 3; i++)
 			{
-				while (temp_count < 3 && (!double.TryParse(lenght, out temp_val))||(double.TryParse(lenght, out temp_val) && Convert.ToDouble(lenght)<0))
+				var enteredValue = lenght;
+				bool isValid = double.TryParse(enteredValue, out lenghtDouble);
+				if (isValid && lenghtDouble > 0)
 				{
-					Console.WriteLine("Your input radius is invalid. Please try again");
-					Console.ReadLine();
-					temp_count++;
+					return Math.Round(lenghtDouble, 2);
 				}
-				lenghtDouble = randomValue;
 
-			}
-			else 
-			{ 
-				lenghtDouble = Convert.ToDouble(lenght);
+				if (!isValid)
+				{
+					Console.WriteLine("Please try again");
+				}
 
+				if (isValid && lenghtDouble <= 0)
+				{
+					Console.WriteLine("Please try again");
+				}
 			}
-			return lenghtDouble;
+			return Math.Round(randomValue);
 		}
 
 	}
