@@ -8,13 +8,13 @@ namespace tasks1_2
 {
 	public class Quadrate
 	{
-		private double side;
-		public double quadrateArea;
+		private double Side;
+		public double QuadrateArea;
 
 		public Quadrate(double enterSide)
 			{
-				side = enterSide;
-				quadrateArea = Math.Round(Math.Pow(side, 2),2);
+				Side = enterSide;
+				QuadrateArea = Math.Round(Math.Pow(Side, 2),2);
 			}
 		}
 	}
