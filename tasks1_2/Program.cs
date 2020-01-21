@@ -14,8 +14,8 @@ namespace tasks1_2
 			Console.Write("Enter a side lenght: ");
 			Quadrate quadrate = new Quadrate(validLenght.ValidateValue());
 
-			Console.WriteLine($"Circle area is {circle}");
-			Console.WriteLine($"Square area is {quadrate}");
+			Console.WriteLine($"Circle area is {circle.RoundArea}");
+			Console.WriteLine($"Square area is {quadrate.QuadrateArea}");
 
 			Compare compareAreas = new Compare ();
 			Console.WriteLine(compareAreas.Comparing(circle.RoundArea, quadrate.QuadrateArea));
