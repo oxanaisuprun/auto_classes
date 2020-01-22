@@ -8,14 +8,14 @@ namespace tasks1_2
 		{
 			Validate validLenght = new Validate();
 
-			Console.Write("Enter a radius value: ");
+			Console.WriteLine("Enter a radius value: ");
 			Circle circle = new Circle(validLenght.ValidateValue());
 
-			Console.Write("Enter a side lenght: ");
+			Console.WriteLine("Enter a side lenght: ");
 			Quadrate quadrate = new Quadrate(validLenght.ValidateValue());
 
-			Console.WriteLine($"Circle area is {circle.RoundArea}");
-			Console.WriteLine($"Square area is {quadrate.QuadrateArea}");
+			Console.WriteLine($"Circle area with radius {circle.Radius} is {circle.RoundArea}");
+			Console.WriteLine($"Square area with side {quadrate.Side} is {quadrate.QuadrateArea}");
 
 			Compare compareAreas = new Compare ();
 			Console.WriteLine(compareAreas.Comparing(circle.RoundArea, quadrate.QuadrateArea));

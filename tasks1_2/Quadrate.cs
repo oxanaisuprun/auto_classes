@@ -8,7 +8,7 @@ namespace tasks1_2
 {
 	public class Quadrate
 	{
-		private double Side;
+		public double Side;
 		public double QuadrateArea;
 
 		public Quadrate(double enterSide)

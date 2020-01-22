@@ -3,6 +3,7 @@ namespace tasks1_2
 {
 	public class Compare
 	{
+		//this compares areas of figures with entered values
 		public  string Comparing (double roundArea, double quadrateArea)
 		{
 			string comparingResult;

@@ -8,14 +8,13 @@ namespace tasks1_2
 {
 	class Circle
     {
-		private double Radius;
+		public double Radius;
 		public double RoundArea;
 
 		public Circle(double enterRadius)
 		{
 			Radius = enterRadius;
 			RoundArea = Math.Round(Math.PI * Math.Pow(Radius, 2),2);
-			//Console.WriteLine($"The area of circle with radius {Radius} is {RoundArea}");
 		}
     }
 }
